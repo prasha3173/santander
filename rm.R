@@ -1,0 +1,10 @@
+setwd("/media/prashant/4A1CEE8E1CEE747B/santandar")
+file=read.csv(file="train.csv",header=T)
+sapply(file,class)
+samp=floor(0.75*nrow(file))
+setseed(200)
+trainind=sample(seq_len(nrow(file)),size=samp)
+train=file[trainind,]
+test=file[-trainind,]
+model=glm(TARGET~.,family=binomial(link='logit'),data=train)
+summary(model)
