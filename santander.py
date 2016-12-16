@@ -21,7 +21,7 @@ for i in range(len(file.columns)-1):
             coldup.append(file.columns[j])
             
 file=file.drop(coldup,axis=1)
-print(file.shape)
+
 
 label=file['TARGET']
 feature=file.drop(['ID','TARGET'],axis=1)
